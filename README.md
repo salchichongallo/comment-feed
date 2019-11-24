@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/salchichongallo/test-comment-feed.svg?branch=master)](https://travis-ci.com/salchichongallo/test-comment-feed)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
