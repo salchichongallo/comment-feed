@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import CommentFeed from './containers/CommentFeed';
+import useCommentFeed from './containers/useCommentFeed';
+
+const auth = {
+  id: 'john-doe',
+  name: 'John Doe',
+};
+
+const initialComments = [
+  {
+    id: 'comment-0',
+    author: 'John Doe',
+    text: 'A boats but a mystery box could be anything.',
+    likes: [auth.id],
+  },
+  {
+    id: 'comment-1',
+    author: 'Max Powers Jr',
+    text: 'Krypton sucks.',
+    likes: [],
+  },
+];
 
 function App() {
+  const feed = useCommentFeed(initialComments)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CommentFeed
+      header="Comment Feed"
+      auth={auth}
+      {...feed}
+    />
   );
 }
 
