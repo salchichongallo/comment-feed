@@ -30,15 +30,16 @@ const createProps = props => ({
 });
 
 describe('CommentFeed', () => {
-  const props = { header: 'Comment Feed', comments: [] };
   it('renders the CommentFeed', () => {
+    const props = createProps();
     const { getByText } = render(<CommentFeed {...props} />);
     const header = getByText(props.header);
     expect(header.innerHTML).toBe(props.header);
   });
 
   it('renders the an empty comment list', () => {
-    const { container } = render(<CommentFeed comments={props.comments} />);
+    const props = createProps({ comments: [] });
+    const { container } = render(<CommentFeed {...props} />);
     const commentNodes = container.querySelectorAll('.Comment');
     expect(commentNodes.length).toBe(props.comments.length);
   });
