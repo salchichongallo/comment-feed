@@ -23,30 +23,41 @@ const createProps = props => ({
     id: 'john-doe',
     name: 'John Doe',
   },
-  createComment: jest.fn(),
-  likeComment: jest.fn(),
-  unlikeComment: jest.fn(),
+  onComment: jest.fn(),
+  onLike: jest.fn(),
+  onDislike: jest.fn(),
   ...props,
 });
 
 describe('CommentFeed', () => {
   it('renders the CommentFeed', () => {
+    // Arrange
     const props = createProps();
     const { getByText } = render(<CommentFeed {...props} />);
+
+    // Act
     const header = getByText(props.header);
+
+    // Assert
     expect(header.innerHTML).toBe(props.header);
   });
 
   it('renders the an empty comment list', () => {
+    // Arrange
     const props = createProps({ comments: [] });
     const { container } = render(<CommentFeed {...props} />);
+
+    // Act
     const commentNodes = container.querySelectorAll('.Comment');
+
+    // Assert
     expect(commentNodes.length).toBe(props.comments.length);
   });
 
   it('renders the comment list with some entries', () => {
     const props = createProps();
     const { container } = render(<CommentFeed {...props} />);
+
     const commentNodes = container.querySelectorAll('.Comment');
 
     expect(commentNodes.length).toBe(props.comments.length);
@@ -69,8 +80,10 @@ describe('CommentFeed', () => {
     fireEvent.submit(formNode);
 
     // Assert - check whether the desired functions were called
-    expect(props.createComment).toHaveBeenCalledTimes(1);
-    expect(props.createComment).toBeCalledWith(newComment);
+    expect(props.onComment).toHaveBeenCalledTimes(1);
+    expect(props.onComment).toBeCalledWith(newComment);
+
+    // Clean fields after submit
     expect(authorNode.value).toBe('');
     expect(textNode.value).toBe('');
   });
@@ -81,11 +94,10 @@ describe('CommentFeed', () => {
     const { getByTestId } = render(<CommentFeed {...props} />);
 
     const likeNode = getByTestId(commentId);
-
     fireEvent.click(likeNode);
 
-    expect(props.likeComment).toHaveBeenCalledTimes(1);
-    expect(props.likeComment).toHaveBeenCalledWith(commentId, props.auth);
+    expect(props.onLike).toHaveBeenCalledTimes(1);
+    expect(props.onLike).toHaveBeenCalledWith(commentId, props.auth);
   });
 
   it('allows the user to unlike a comment', () => {
@@ -97,7 +109,7 @@ describe('CommentFeed', () => {
 
     fireEvent.click(likeNode);
 
-    expect(props.unlikeComment).toHaveBeenCalledTimes(1);
-    expect(props.unlikeComment).toHaveBeenCalledWith(commentId, props.auth);
+    expect(props.onDislike).toHaveBeenCalledTimes(1);
+    expect(props.onDislike).toHaveBeenCalledWith(commentId, props.auth);
   });
 });

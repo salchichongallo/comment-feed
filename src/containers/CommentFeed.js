@@ -5,7 +5,7 @@ import Comment from '../components/Comment';
 
 import './CommentFeed.css';
 
-function CommentFeed({ header, comments, createComment, likeComment, unlikeComment, auth }) {
+function CommentFeed({ header, comments, onComment, onLike, onDislike, auth }) {
   const [author, setAuthor] = React.useState('');
   const [text, setText] = React.useState('');
 
@@ -14,21 +14,22 @@ function CommentFeed({ header, comments, createComment, likeComment, unlikeComme
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createComment({ author, text });
+
+    onComment({ author, text });
 
     // clean fields
     setAuthor('');
     setText('');
   };
 
-  const handleLike = id => likeComment(id, auth);
-  const handleDislike = id => unlikeComment(id, auth);
+  const handleLike = id => onLike(id, auth);
+  const handleDislike = id => onDislike(id, auth);
 
   return (
-    <div className="comment-feed">
+    <div className="CommentFeed">
       <h2>{header}</h2>
 
-      <form onSubmit={handleSubmit} className="comment-form">
+      <form onSubmit={handleSubmit} className="CommentForm">
         <label htmlFor="author">
           <span>Author</span>
           <input
@@ -54,7 +55,7 @@ function CommentFeed({ header, comments, createComment, likeComment, unlikeComme
         </button>
       </form>
 
-      <div className="comment-list">
+      <div className="CommentList">
         <h3>Latest Comments</h3>
         {comments.map((comment, index) => (
           <Comment

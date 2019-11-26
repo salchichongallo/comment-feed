@@ -32,17 +32,17 @@ function reducer(state, action) {
 function useCommentFeed(initialComments = []) {
   const [comments, dispatch] = useReducer(reducer, initialComments);
 
-  const createComment = comment => dispatch({ comment, type: 'CREATE_COMMENT' });
+  const onComment = comment => dispatch({ comment, type: 'CREATE_COMMENT' });
 
-  const likeComment = (id, auth) => dispatch({ id, auth, type: 'LIKE_COMMENT' });
+  const onLike = (id, auth) => dispatch({ id, auth, type: 'LIKE_COMMENT' });
 
-  const unlikeComment = (id, auth) => dispatch({ id, auth, type: 'UNLIKE_COMMENT' });
+  const onDislike = (id, auth) => dispatch({ id, auth, type: 'UNLIKE_COMMENT' });
 
   return {
     comments,
-    createComment,
-    likeComment,
-    unlikeComment,
+    onComment,
+    onLike,
+    onDislike,
   };
 }
 

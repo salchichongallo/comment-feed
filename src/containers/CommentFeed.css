@@ -1,44 +1,39 @@
-.comment-feed {
+.CommentFeed {
   margin: 0 auto;
   max-width: 480px;
   padding: 1rem;
 }
-
-.comment-feed > h2 {
+.CommentFeed > h2 {
   font-weight: 600;
   margin: 0;
   margin-bottom: 1rem;
 }
 
-.comment-form {
+.CommentForm {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
 }
-
-.comment-form > label {
+.CommentForm > label {
   margin-bottom: 1rem;
 }
-
-.comment-form span {
+.CommentForm span {
   display: block;
   font-size: 14px;
   margin-bottom: 4px;
 }
-
-.comment-form input {
+.CommentForm input {
   width: 100%;
   font: inherit;
 }
-
-.comment-form button {
+.CommentForm button {
   font: inherit;
   cursor: pointer;
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
 }
 
-.comment-list > h3 {
+.CommentList > h3 {
   color: rgba(0, 0, 0, 0.6);
   font-weight: 400;
 }
