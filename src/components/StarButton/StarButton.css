@@ -1,0 +1,25 @@
+.StarButton {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: .5rem;
+  box-sizing: content-box;
+  border-radius: 999px;
+}
+
+.StarButton--active {
+  fill: #fde34e;
+  stroke: #ff9900;
+}
+.StarButton--active:hover,
+.StarButton--active:focus {
+  background: #fff9da;
+}
+
+.StarButton--unactive {
+  stroke: rgba(0, 0, 0, .6);
+  fill: none;
+}
+.StarButton--unactive:hover,
+.StarButton--unactive:focus {
+  background: rgba(0, 0, 0, .05);
+}
