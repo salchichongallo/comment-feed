@@ -1,5 +1,7 @@
 import React from 'react';
 
+import StarButton from '../StarButton';
+
 import './Comment.css';
 
 const Comment = (props) => {
@@ -14,14 +16,12 @@ const Comment = (props) => {
       <h4>{props.author}</h4>
       <p>{props.text}</p>
 
-      <button
-        type="button"
+      <StarButton
         onClick={handleClick}
         data-testid={props.id}
-        className={isLiked ? '-liked' : '-disliked'}
-      >
-        {isLiked ? 'Unlike' : 'Like'}
-      </button>
+        active={isLiked}
+        className="Comment__StarButton"
+      />
     </div>
   );
 };
