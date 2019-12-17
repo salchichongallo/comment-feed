@@ -1,0 +1,30 @@
+.CommentFeed {
+  margin: 0 auto;
+  max-width: 480px;
+  padding: 0 1rem;
+}
+.CommentFeed__header {
+  margin: 1.125rem 0 2.5rem 0;
+}
+.CommentFeed h1 {
+  font-size: 1.5rem;
+}
+
+.CommentForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.CommentForm > label {
+  margin-bottom: 1rem;
+}
+.CommentForm .Input {
+  margin-bottom: 3rem;
+}
+
+.CommentList > h3 {
+  color: rgba(0, 0, 0, .6);
+  font-size: 1.125rem;
+  padding: 0 .75rem;
+  margin-bottom: .75rem;
+}
