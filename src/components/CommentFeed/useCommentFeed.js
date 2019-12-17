@@ -29,7 +29,7 @@ function reducer(state, action) {
   }
 }
 
-function useCommentFeed(initialComments = []) {
+export function useCommentFeed(initialComments = []) {
   const [comments, dispatch] = useReducer(reducer, initialComments);
 
   const onComment = comment => dispatch({ comment, type: 'CREATE_COMMENT' });
@@ -45,5 +45,3 @@ function useCommentFeed(initialComments = []) {
     onDislike,
   };
 }
-
-export default useCommentFeed;

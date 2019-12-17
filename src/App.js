@@ -1,7 +1,6 @@
 import React from 'react';
 
-import CommentFeed from './containers/CommentFeed';
-import useCommentFeed from './containers/useCommentFeed';
+import CommentFeed, { useCommentFeed } from './components/CommentFeed';
 
 const auth = {
   id: 'john-doe',

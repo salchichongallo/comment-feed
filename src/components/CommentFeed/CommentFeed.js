@@ -1,9 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import Input from '../components/Input'
-import Comment from '../components/Comment';
-import Button from '../components/Button/Button';
+import Input from '../Input'
+import Comment from '../Comment';
+import Button from '../Button/Button';
 
 import './CommentFeed.css';
 
