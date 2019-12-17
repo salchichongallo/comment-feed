@@ -1,7 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+import Input from '../components/Input'
 import Comment from '../components/Comment';
+import Button from '../components/Button/Button';
 
 import './CommentFeed.css';
 
@@ -27,32 +29,32 @@ function CommentFeed({ header, comments, onComment, onLike, onDislike, auth }) {
 
   return (
     <div className="CommentFeed">
-      <h2>{header}</h2>
+      <header className="CommentFeed__header">
+        <h1>{header}</h1>
+      </header>
 
       <form onSubmit={handleSubmit} className="CommentForm">
-        <label htmlFor="author">
-          <span>Author</span>
-          <input
-            id="author"
-            type="text"
-            value={author}
-            onChange={handleAuthorChange}
-          />
-        </label>
+        <Input
+          label="Author"
+          id="author"
+          type="text"
+          value={author}
+          onChange={handleAuthorChange}
+          required
+        />
 
-        <label htmlFor="text">
-          <span>Comment</span>
-          <input
-            id="text"
-            type="text"
-            value={text}
-            onChange={handleTextChange}
-          />
-        </label>
+        <Input
+          label="Comment"
+          id="text"
+          type="text"
+          value={text}
+          onChange={handleTextChange}
+          required
+        />
 
-        <button type="submit">
+        <Button type="submit">
           Submit Comment
-        </button>
+        </Button>
       </form>
 
       <div className="CommentList">
