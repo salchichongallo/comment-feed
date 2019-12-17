@@ -1,0 +1,33 @@
+.Input {
+  position: relative;
+}
+
+.Input__input {
+  border: none;
+  font-size: 1rem;
+  padding: .75rem .5rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.Input__label {
+  position: absolute;
+  top: 0;
+  left: .5rem;
+  cursor: text;
+  user-select: none;
+  transform: translateY(50%);
+  color: rgba(0, 0, 0, .38);
+  transition: transform 125ms ease-in-out;
+}
+
+.Input__input:valid + .Input__label,
+.Input__input:focus + .Input__label {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, .38);
+  cursor: auto;
+  user-select: initial;
+  letter-spacing: .5px;
+  transform: translateY(-100%);
+  font-weight: 700;
+}
